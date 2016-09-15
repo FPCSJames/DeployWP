@@ -79,6 +79,12 @@ customplugins() {
    rm master.zip.1
 }
 
+customwpcli() {
+   wp plugin activate wp-anti-detritus
+   wp plugin activate better-wp-security
+   wp plugin activate wp-security-audit-log
+}
+
 #### Stop editing here unless you know what you're doing ####
 
 # Action functions
@@ -141,6 +147,8 @@ wpoptions() {
    wp option update use_trackback 0
    wp option update timezone_string $timezone
    wp rewrite structure $permalinks --hard
+   wp rewrite flush --hard
+   customwpcli
 }
 
 # Utility functions
@@ -230,9 +238,9 @@ if [ "$havewpcli" -eq "1" ]; then
 
    echo ""
 
-   spinner "Running WP installer..." "wp core install --url=$subdomain.$rootdomain --title=$sitetitle --admin_user=$adminuser --admin_password=$adminpass --admin_email=$adminemail --skip-email"
-   spinner "Setting WP options..." "wpoptions"
+   spinner "Running WP installer..." "wp core install --url=$subdomain.$rootdomain --title='$sitetitle' --admin_user=$adminuser --admin_password='$adminpass' --admin_email=$adminemail --skip-email"
    spinner "Removing default WP content..." "wpclear"
+   spinner "Setting WP options..." "wpoptions"
 
    echo ""
 fi

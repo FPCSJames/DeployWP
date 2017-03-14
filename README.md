@@ -4,7 +4,7 @@ Deploy WordPress with (almost) just a shell script.
 This script is somewhat tailored to our typical environment, but should work well on any reasonably high-quality shared host or better with cPanel.
 
 ## Why not go fully wp-cli?
-I've opted to keep as much of this install script as is sane usable with just a bare shell and PHP in case wp-cli can't be effectively installed in your environment. While it's unlikely that you'd be able to run this script and not be able to run wp-cli as well, there's always that edge case. Hence, we've made it optional.
+I've opted to keep as much of this install script as is sane usable with just a bare shell and PHP in case wp-cli can't be effectively installed in your environment. While it's unlikely that you'd be able to run this script and not be able to run wp-cli as well, there's always that edge case.
 
 ## Configuration
 Basic server details live under the `# Config` comment.
@@ -38,4 +38,4 @@ This script installs the [Roots wp-password-bcrypt plugin](https://github.com/ro
 
 ## Questions?
 
-Questions? Comments? Send me an email at `james -at- flashpointcs -dot- net`. Please only post issues to report bugs or suggest improvements.
+Questions? Comments? Send me an email at `james -at- flashpointcs -dot- net`. Please do not post issues for support; issues are for bug reports, feature requests, and suggestions for improvement only.

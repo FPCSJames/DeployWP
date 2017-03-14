@@ -51,10 +51,9 @@ imsanity
 ewww-image-optimizer
 authy-two-factor-authentication
 wordpress-seo
-so-clean-up-wp-seo
 wp-security-audit-log"
 
-themetokeep="twentysixteen"
+themetokeep="twentyseventeen"
 
 # WP-CLI
 
@@ -68,10 +67,10 @@ permalinks="/%year%/%monthnum%/%postname%/"
 # Custom functions
 
 customplugins() {
-   wget --quiet https://github.com/szepeviktor/fix-w3tc/archive/master.zip >/dev/null 2>&1
-   unzip master.zip
-   rm master.zip
-   mv fix-w3tc-master w3-total-cache
+   wget --quiet https://github.com/szepeviktor/w3-total-cache-fixed/releases/download/0.9.4.6.4/w3-total-cache-fixed-for-v0.9.4.x-users.zip >/dev/null 2>&1
+   mkdir w3-total-cache-fixed
+   unzip -nq w3-total-cache-fixed-for*
+   rm w3-total-cache-fixed-for-v0.9.4.x-users.zip
    wget --quiet https://github.com/FPCSJames/wp-anti-detritus/archive/master.zip >/dev/null 2>&1
    unzip master.zip
    rm master.zip
@@ -134,8 +133,8 @@ setupconfig() {
 
 wpclear() {
    # Thanks http://lowermedia.net/petes-evergrowing-wp-cli-reference-cheat-sheet/
-   wp post delete $(wp post list --post_type='page' --format=ids)
-   wp post delete $(wp post list --post_type='post' --format=ids)
+   wp post delete $(wp post list --post_type='page' --format=ids) --force
+   wp post delete $(wp post list --post_type='post' --format=ids) --force
    wp widget delete $(wp widget list sidebar-1 --format=ids);
 }
 

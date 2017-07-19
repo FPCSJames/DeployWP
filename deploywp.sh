@@ -5,12 +5,12 @@
 #
 # Deploys WordPress on a subdomain on a standard cPanel account.
 #
-# Author:      James M. Joyce, Flashpoint CS <james@flashpointcs.net>
-# Author URI:  http://www.flashpointcs.net
-# Github:      https://github.com/FPCSJames/deploywp
-# Version:     1.0
+# Author: James M. Joyce, Flashpoint CS <james@flashpointcs.net>
+# Author URI: http://www.flashpointcs.net
+# GitHub repo: https://github.com/FPCSJames/deploywp
+# Version: 1.0.1
 #
-# Copyright (c) 2016 Flashpoint Computer Services, LLC
+# Copyright (c) 2016-2017 Flashpoint Computer Services, LLC
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy of
 # this software and associated documentation files (the "Software"), to deal in

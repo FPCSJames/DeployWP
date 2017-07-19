@@ -36,7 +36,7 @@ Under `# Custom functions` is a `customplugins` function where you can install t
 
 ## bcrypt and you
 
-This script installs the [Roots wp-password-bcrypt plugin](https://github.com/roots/wp-password-bcrypt) as a must-use plugin to ensure that even the initial admin user's password is even more securely hashed from the get-go. Please see the [Roots blog follow-up post](https://roots.io/wordpress-password-security-follow-up/) for more information on why bcrypt is probably preferable to WordPress's implementation of phpass. Is it 100% guaranteed necessary? No. Does it hurt to beef up the algorithm some? Nope. This implemention calls for PHP >= 5.5, but you should probably be there already, or looking for a host who is (or supports switchable PHP versions as many good shared hosts do - we like [https://www.stablehost.com/](StableHost)).
+This script installs the [Roots wp-password-bcrypt plugin](https://github.com/roots/wp-password-bcrypt) as a must-use plugin to ensure that even the initial admin user's password is even more securely hashed from the get-go. Please see the [Roots blog follow-up post](https://roots.io/wordpress-password-security-follow-up/) for more information on why bcrypt is probably preferable to WordPress's implementation of phpass. Is it 100% guaranteed necessary? No. Does it hurt to beef up the algorithm some? Nope. This implemention calls for PHP >= 5.5, but you should probably be there already, or looking for a host who is (or supports switchable PHP versions as many good shared hosts do - we like [StableHost](https://www.stablehost.com/)).
 
 ## Questions?
 

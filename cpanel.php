@@ -22,20 +22,32 @@ switch($argv[1]) {
    case 'sub':
       $url .= "json-api/cpanel?cpanel_jsonapi_user={$argv[3]}&cpanel_jsonapi_apiversion=2&cpanel_jsonapi_module=SubDomain&cpanel_jsonapi_func=addsubdomain&domain={$argv[6]}&rootdomain={$argv[5]}&dir=%2F{$argv[6]}.{$argv[5]}";
       break;
+   case 'lecp':
+      $url .= "frontend/paper_lantern/letsencrypt/letsencrypt.live.cgi?action=issue";
+      curl_setopt($curl, CURLOPT_POST, 1);
+      curl_setopt($curl, CURLOPT_POSTFIELDS, ['domain' => "{$argv[6]}.{$argv[5]}", 'aliasdomain' => "{$argv[6]}.{$argv[5]}"]);
+      break;
    default:
       die('error');
+	  break;
 }
 
 curl_setopt($curl, CURLOPT_URL, $url);
 $result = curl_exec($curl);
 curl_close($curl);
-if ($result === false) {
+if($result === false) {
     die('error');
+}
+
+if($argv[1] === 'lecp') {
+	if(strpos($result, 'certificate is now installed') !== false) {
+		exit(0);
+	}
+	exit(1);
 }
 
 $result_json = json_decode($result);
 if(($argv[1] === 'sub' && $result_json->cpanelresult->data[0]->result === 1) || $argv[1] !== 'sub' && $result_json->status === 1) {
    exit(0);
-} else {
-   exit(1);
 }
+exit(1);

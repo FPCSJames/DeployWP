@@ -145,6 +145,7 @@ wpoptions() {
    wp option update default_ping_status $pingstatus
    wp option update use_trackback 0
    wp option update timezone_string $timezone
+   wp search-replace 'http://$subdomain.$rootdomain' 'https://$subdomain.$rootdomain'
    wp rewrite structure $permalinks --hard
    wp rewrite flush --hard
    customwpcli
@@ -224,6 +225,7 @@ spinner "Downloading and unpacking plugins..." "getplugins"
 spinner "Setting wp-config.php values..." "setupconfig"
 spinner "Removing stock themes..." "removethemes"
 spinner "Setting permissions..." "setperms"
+spinner "Creating Let's Encrypt cert..." "php $dwpdir/cpanel.php 'lecp' $cpanelurl $cpaneluser $cpanelpass $rootdomain $subdomain"
 
 if [ "$havewpcli" -eq "1" ]; then
    echo -ne "\n"
@@ -244,5 +246,5 @@ if [ "$havewpcli" -eq "1" ]; then
    echo ""
 fi
 
-echo "**** Complete! Go set up SSL in cPanel. ****"
+echo "**** Complete! ****"
 echo ""

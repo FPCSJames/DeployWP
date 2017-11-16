@@ -47,6 +47,7 @@ wp-content/plugins/akismet
 wp-content/plugins/hello.php"
 
 pluginstoadd="better-wp-security
+cf-littlebizzy
 imsanity
 ewww-image-optimizer
 authy-two-factor-authentication

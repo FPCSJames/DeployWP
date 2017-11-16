@@ -69,9 +69,8 @@ permalinks="/%year%/%monthnum%/%postname%/"
 
 customplugins() {
    wget --quiet https://github.com/szepeviktor/w3-total-cache-fixed/releases/download/0.9.5.4.3/w3-total-cache-fixed-for-v0.9.5.x-users.zip >/dev/null 2>&1
-   mkdir w3-total-cache-fixed
    unzip -nq w3-total-cache-fixed-for*
-   rm w3-total-cache-fixed-for-v0.9.4.x-users.zip
+   rm w3-total-cache-fixed-for-v0.9.5.x-users.zip
    wget --quiet https://github.com/FPCSJames/wp-anti-detritus/archive/master.zip >/dev/null 2>&1
    unzip master.zip
    rm master.zip

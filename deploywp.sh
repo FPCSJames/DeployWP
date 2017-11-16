@@ -47,7 +47,6 @@ wp-content/plugins/akismet
 wp-content/plugins/hello.php"
 
 pluginstoadd="better-wp-security
-cf-littlebizzy
 disable-author-pages-littlebizzy
 imsanity
 ewww-image-optimizer
@@ -69,7 +68,7 @@ permalinks="/%year%/%monthnum%/%postname%/"
 # Custom functions
 
 customplugins() {
-   wget --quiet https://github.com/szepeviktor/w3-total-cache-fixed/releases/download/0.9.4.6.4/w3-total-cache-fixed-for-v0.9.4.x-users.zip >/dev/null 2>&1
+   wget --quiet https://github.com/szepeviktor/w3-total-cache-fixed/releases/download/0.9.5.4.3/w3-total-cache-fixed-for-v0.9.5.x-users.zip >/dev/null 2>&1
    mkdir w3-total-cache-fixed
    unzip -nq w3-total-cache-fixed-for*
    rm w3-total-cache-fixed-for-v0.9.4.x-users.zip

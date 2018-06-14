@@ -10,7 +10,7 @@
 # GitHub repo: https://github.com/FPCSJames/deploywp
 # Version: 1.0.2
 #
-# Copyright (c) 2016-2018 Flashpoint Computer Services, LLC
+# Copyright (c) 2016-2018 Flashpoint Computer Services, LLC <info@flashpointcs.net>
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy of
 # this software and associated documentation files (the "Software"), to deal in

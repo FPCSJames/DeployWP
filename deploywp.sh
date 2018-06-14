@@ -42,7 +42,6 @@ rootdomain="example.com"
 # WP prefs
 
 filestoremove="readme.html
-license.txt
 wp-content/plugins/akismet
 wp-content/plugins/hello.php"
 
@@ -70,7 +69,7 @@ permalinks="/%year%/%monthnum%/%postname%/"
 
 customplugins() {
    wget --quiet https://github.com/szepeviktor/w3-total-cache-fixed/releases/download/0.9.5.4.3/w3-total-cache-fixed-for-v0.9.5.x-users.zip >/dev/null 2>&1
-   wget --quiet hhttps://github.com/FPCSJames/wp-anti-detritus/releases/download/1.0.1/wp-anti-detritus.zip >/dev/null 2>&1
+   wget --quiet https://github.com/FPCSJames/wp-anti-detritus/releases/download/1.0.1/wp-anti-detritus.zip >/dev/null 2>&1
    wget --quiet https://github.com/FPCSJames/authy-wordpress/releases/download/3.0.2-fpcs/authy-wordpress.zip >/dev/null 2>&1
    unzip -nq w3-total-cache-fixed-for*
    unzip -nq wp-anti-detritus.zip

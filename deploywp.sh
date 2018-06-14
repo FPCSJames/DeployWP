@@ -71,10 +71,11 @@ customplugins() {
    wget --quiet https://github.com/szepeviktor/w3-total-cache-fixed/archive/0.9.6.1.zip >/dev/null 2>&1
    wget --quiet https://github.com/FPCSJames/wp-anti-detritus/releases/download/1.0.1/wp-anti-detritus.zip >/dev/null 2>&1
    wget --quiet https://github.com/FPCSJames/authy-wordpress/releases/download/3.0.2-fpcs/authy-wordpress.zip >/dev/null 2>&1
-   unzip -nq w3-total-cache-fixed-for*
+   unzip -nq w3-total-cache*
    unzip -nq wp-anti-detritus.zip
    unzip -nq authy-wordpress.zip
-   rm 0.9.6.1.zip
+   mv w3-total-cache* w3-total-cache
+   rm w3-total-cache-fixed-0.9.6.1.zip
    rm wp-anti-detritus.zip
    rm authy-wordpress.zip
 }

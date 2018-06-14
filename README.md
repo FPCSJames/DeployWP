@@ -3,7 +3,7 @@
 
 Deploy WordPress with (almost) just a shell script.
 
-This script is somewhat tailored to our typical environment, but should work well on any reasonably high-quality shared host or better with cPanel.
+This script is somewhat tailored to our typical environment, but should work well on any reasonably high-quality shared host, VPS, or other environment with cPanel.
 
 ## Why not go fully wp-cli?
 I've opted to keep as much of this install script as is sane usable with just a bare shell and PHP in case wp-cli can't be effectively installed in your environment. While it's unlikely that you'd be able to run this script and not be able to run wp-cli as well, there's always that edge case.
@@ -32,11 +32,11 @@ The `# WP CLI` comment begins optional WP-CLI-driven config items.
 * `pingstatus`: see above, but for pingbacks to you.
 * `permalinks`: your desired [permalink structure](https://codex.wordpress.org/Using_Permalinks#Choosing_your_permalink_structure).
 
-Under `# Custom functions` is a `customplugins` function where you can install the plugins of your choice by the method of your choice. As examples, the script downloads, unpacks, and removes the zips of [the community updated build of W3 Total Cache](https://github.com/szepeviktor/fix-w3tc) and my UI-less [cleanup plugin](https://github.com/fpcsjames/wp-anti-detritus). There's also a `customwpcli` function to add extra WP-CLI commands - if you don't have WP-CLI enabled you can ignore its contents or clear them.
+Under `# Custom functions` is a `customplugins` function where you can install the plugins of your choice by the method of your choice. As examples, the script downloads, unpacks, and removes the zips of [the community updated build of W3 Total Cache](https://github.com/szepeviktor/fix-w3tc), my UI-less [cleanup plugin](https://github.com/fpcsjames/wp-anti-detritus), and a [modified build](https://github.com/fpcsjames/authy-wordpress/) of the since-removed Authy plugin. There's also a `customwpcli` function to add extra WP-CLI commands - if you don't have WP-CLI enabled you can ignore its contents or clear them.
 
 ## bcrypt and you
 
-This script installs the [Roots wp-password-bcrypt plugin](https://github.com/roots/wp-password-bcrypt) as a must-use plugin to ensure that even the initial admin user's password is even more securely hashed from the get-go. Please see the [Roots blog follow-up post](https://roots.io/wordpress-password-security-follow-up/) for more information on why bcrypt is probably preferable to WordPress's implementation of phpass. Is it 100% guaranteed necessary? No. Does it hurt to beef up the algorithm some? Nope. This implemention calls for PHP >= 5.5, but you should probably be there already, or looking for a host who is (or supports switchable PHP versions as many good shared [like [StableHost](https://www.stablehost.com/)] do).
+This script installs the [Roots wp-password-bcrypt plugin](https://github.com/roots/wp-password-bcrypt) as a must-use plugin to ensure that even the initial admin user's password is even more securely hashed from the get-go. Please see the [Roots blog follow-up post](https://roots.io/wordpress-password-security-follow-up/) for more information on why bcrypt is probably preferable to WordPress's implementation of phpass. Is it 100% guaranteed necessary? No. Does it hurt to beef up the algorithm some? Nope. This implemention calls for PHP >= 5.5, but you should be there already, or looking for a host who supports it.
 
 ## Questions?
 
@@ -50,4 +50,4 @@ Questions? Comments? Send me an email at `james -at- flashpointcs -dot- net`. Pl
 >
 > The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 >
-> THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+> THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

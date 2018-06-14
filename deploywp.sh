@@ -6,11 +6,11 @@
 # Deploys WordPress on a subdomain on a standard cPanel account.
 #
 # Author: James M. Joyce, Flashpoint CS <james@flashpointcs.net>
-# Author URI: http://www.flashpointcs.net
+# Author URI: https://www.flashpointcs.net
 # GitHub repo: https://github.com/FPCSJames/deploywp
-# Version: 1.0.1
+# Version: 1.0.2
 #
-# Copyright (c) 2016-2017 Flashpoint Computer Services, LLC
+# Copyright (c) 2016-2018 Flashpoint Computer Services, LLC
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy of
 # this software and associated documentation files (the "Software"), to deal in
@@ -50,7 +50,8 @@ pluginstoadd="better-wp-security
 disable-author-pages-littlebizzy
 imsanity
 ewww-image-optimizer
-authy-two-factor-authentication
+litespeed-cache
+better-search-replace
 wordpress-seo
 wp-security-audit-log"
 
@@ -69,13 +70,14 @@ permalinks="/%year%/%monthnum%/%postname%/"
 
 customplugins() {
    wget --quiet https://github.com/szepeviktor/w3-total-cache-fixed/releases/download/0.9.5.4.3/w3-total-cache-fixed-for-v0.9.5.x-users.zip >/dev/null 2>&1
+   wget --quiet hhttps://github.com/FPCSJames/wp-anti-detritus/releases/download/1.0.1/wp-anti-detritus.zip >/dev/null 2>&1
+   wget --quiet https://github.com/FPCSJames/authy-wordpress/releases/download/3.0.2-fpcs/authy-wordpress.zip >/dev/null 2>&1
    unzip -nq w3-total-cache-fixed-for*
+   unzip -nq wp-anti-detritus.zip
+   unzip -nq authy-wordpress.zip
    rm w3-total-cache-fixed-for-v0.9.5.x-users.zip
-   wget --quiet https://github.com/FPCSJames/wp-anti-detritus/archive/master.zip >/dev/null 2>&1
-   unzip master.zip
-   rm master.zip
-   mv wp-anti-detritus-master wp-anti-detritus
-   rm master.zip.1
+   rm wp-anti-detritus.zip
+   rm authy-wordpress.zip
 }
 
 customwpcli() {
@@ -225,7 +227,7 @@ spinner "Downloading and unpacking plugins..." "getplugins"
 spinner "Setting wp-config.php values..." "setupconfig"
 spinner "Removing stock themes..." "removethemes"
 spinner "Setting permissions..." "setperms"
-spinner "Creating Let's Encrypt cert..." "php $dwpdir/cpanel.php 'lecp' $cpanelurl $cpaneluser $cpanelpass $rootdomain $subdomain"
+#spinner "Creating Let's Encrypt cert..." "php $dwpdir/cpanel.php 'lecp' $cpanelurl $cpaneluser $cpanelpass $rootdomain $subdomain"
 
 if [ "$havewpcli" -eq "1" ]; then
    echo -ne "\n"
@@ -246,5 +248,5 @@ if [ "$havewpcli" -eq "1" ]; then
    echo ""
 fi
 
-echo "**** Complete! ****"
+echo "**** Complete! Don't forget the cert. ****"
 echo ""

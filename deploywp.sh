@@ -148,6 +148,8 @@ wpoptions() {
    wp option update use_trackback 0
    wp option update timezone_string $timezone
    wp search-replace 'http://$subdomain.$rootdomain' 'https://$subdomain.$rootdomain'
+   wp option update siteurl 'https://$subdomain' # force siteurl to update correctly by setting it to garbage first
+   wp option update siteurl 'https://$subdomain.$rootdomain'
    wp rewrite structure $permalinks --hard
    wp rewrite flush --hard
    customwpcli

@@ -105,6 +105,7 @@ getplugins() {
    done
    cd .. && mkdir -p mu-plugins && cd mu-plugins
    wget --quiet https://raw.githubusercontent.com/roots/wp-password-bcrypt/master/wp-password-bcrypt.php >/dev/null 2>&1
+   wget --quiet https://gist.githubusercontent.com/FPCSJames/b9169744e9786a32c0ed8754532428ba/raw/4dfe8a4b3ecd3c10c53a240834636bc097c4e5c6/0-kill-mwp-auto-login.php >/dev/null 2>&1
    cd ../plugins
    customplugins
    cd ../..

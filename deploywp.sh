@@ -49,6 +49,8 @@ pluginstoadd="better-wp-security
 disable-author-pages-littlebizzy
 imsanity
 ewww-image-optimizer
+classic-editor
+classic-editor-addon
 litespeed-cache
 better-search-replace
 wordpress-seo
@@ -71,11 +73,11 @@ customplugins() {
    wget --quiet https://github.com/szepeviktor/w3-total-cache-fixed/archive/0.9.6.1.zip >/dev/null 2>&1
    wget --quiet https://github.com/FPCSJames/wp-anti-detritus/releases/download/1.0.1/wp-anti-detritus.zip >/dev/null 2>&1
    wget --quiet https://github.com/FPCSJames/authy-wordpress/releases/download/3.0.2-fpcs/authy-wordpress.zip >/dev/null 2>&1
-   unzip -nq w3-total-cache*
+   unzip -nq 0.9.6.1.zip
    unzip -nq wp-anti-detritus.zip
    unzip -nq authy-wordpress.zip
    mv w3-total-cache* w3-total-cache
-   rm w3-total-cache-fixed-0.9.6.1.zip
+   rm 0.9.6.1.zip
    rm wp-anti-detritus.zip
    rm authy-wordpress.zip
 }
@@ -84,6 +86,8 @@ customwpcli() {
    wp plugin activate wp-anti-detritus
    wp plugin activate better-wp-security
    wp plugin activate wp-security-audit-log
+   wp plugin activate classic-editor
+   wp plugin activate classic-editor-addon
 }
 
 #### Stop editing here unless you know what you're doing ####
@@ -102,7 +106,7 @@ getplugins() {
       wget --quiet https://downloads.wordpress.org/plugin/$pluginName.zip >/dev/null 2>&1
       unzip $pluginName.zip
       rm $pluginName.zip
-   done
+   done 	
    cd .. && mkdir -p mu-plugins && cd mu-plugins
    wget --quiet https://raw.githubusercontent.com/roots/wp-password-bcrypt/master/wp-password-bcrypt.php >/dev/null 2>&1
    wget --quiet https://gist.githubusercontent.com/FPCSJames/b9169744e9786a32c0ed8754532428ba/raw/4dfe8a4b3ecd3c10c53a240834636bc097c4e5c6/0-kill-mwp-auto-login.php >/dev/null 2>&1
@@ -131,6 +135,8 @@ setupconfig() {
    sed -i "s/username_here/"$cpaneluser"_"$dbuser"/" wp-config.php
    sed -i "s/password_here/$dbpass/" wp-config.php
    sed -i "s/wp_/$prefix/" wp-config.php
+   sed -i "2idefine('DISABLE_NAG_NOTICES', true); // deploywp: disable LittleBizzy nags" wp-config.php
+   sed -i "3idefine('WP_MEMORY_LIMIT', '96M'); // deploywp" wp-config.php
    printf '%s\n' "g/$replace/d" a "$salt" . w | ed -s wp-config.php
 }
 

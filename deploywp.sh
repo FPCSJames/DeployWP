@@ -71,7 +71,7 @@ permalinks="/%year%/%monthnum%/%postname%/"
 
 customplugins() {
    wget --quiet https://github.com/szepeviktor/w3-total-cache-fixed/archive/0.9.6.1.zip >/dev/null 2>&1
-   wget --quiet https://github.com/FPCSJames/wp-anti-detritus/releases/download/1.1.1/wp-anti-detritus.zip >/dev/null 2>&1
+   wget --quiet https://github.com/FPCSJames/wp-anti-detritus/releases/download/1.1.2/wp-anti-detritus.zip >/dev/null 2>&1
    wget --quiet https://github.com/FPCSJames/authy-wordpress/releases/download/3.0.2-fpcs/authy-wordpress.zip >/dev/null 2>&1
    unzip -nq 0.9.6.1.zip
    unzip -nq wp-anti-detritus.zip
@@ -194,7 +194,7 @@ spinner() {
    fi
 }
 
-# Initalization and banner display
+# Initialization and banner display
 
 curr=`pwd`
 dwpdir="$( cd "$(dirname "$0")" ; pwd -P )" # See http://goo.gl/U4VXCF

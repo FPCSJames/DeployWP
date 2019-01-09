@@ -10,7 +10,7 @@
 # GitHub repo: https://github.com/FPCSJames/deploywp
 # Version: 1.0.2
 #
-# Copyright (c) 2016-2018 Flashpoint Computer Services, LLC <info@flashpointcs.net>
+# Copyright (c) 2016-2019 Flashpoint Computer Services, LLC <info@flashpointcs.net>
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy of
 # this software and associated documentation files (the "Software"), to deal in
@@ -49,8 +49,7 @@ pluginstoadd="better-wp-security
 disable-author-pages-littlebizzy
 imsanity
 ewww-image-optimizer
-classic-editor
-classic-editor-addon
+disable-gutenberg
 litespeed-cache
 better-search-replace
 wordpress-seo
@@ -86,8 +85,7 @@ customwpcli() {
    wp plugin activate wp-anti-detritus
    wp plugin activate better-wp-security
    wp plugin activate wp-security-audit-log
-   wp plugin activate classic-editor
-   wp plugin activate classic-editor-addon
+   wp plugin activate disable-gutenberg
 }
 
 #### Stop editing here unless you know what you're doing ####

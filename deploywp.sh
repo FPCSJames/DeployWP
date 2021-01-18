@@ -46,16 +46,14 @@ wp-content/plugins/akismet
 wp-content/plugins/hello.php"
 
 pluginstoadd="better-wp-security
-disable-author-pages-littlebizzy
-imsanity
-ewww-image-optimizer
 disable-gutenberg
-litespeed-cache
+ewww-image-optimizer
 better-search-replace
+two-factor-authentication
 wordpress-seo
 wp-security-audit-log"
 
-themetokeep="twentyseventeen"
+themetokeep="twentytwentyone"
 
 # WP-CLI
 
@@ -64,21 +62,14 @@ adminemail="example@example.com"
 timezone="America/Chicago"
 commentstatus="closed"
 pingstatus="closed"
-permalinks="/%year%/%monthnum%/%postname%/"
+permalinks="/%postname%/"
 
 # Custom functions
 
 customplugins() {
-   wget --quiet https://github.com/szepeviktor/w3-total-cache-fixed/archive/0.9.6.1.zip >/dev/null 2>&1
    wget --quiet https://github.com/FPCSJames/wp-anti-detritus/releases/download/1.1.2/wp-anti-detritus.zip >/dev/null 2>&1
-   wget --quiet https://github.com/FPCSJames/authy-wordpress/releases/download/3.0.2-fpcs/authy-wordpress.zip >/dev/null 2>&1
-   unzip -nq 0.9.6.1.zip
    unzip -nq wp-anti-detritus.zip
-   unzip -nq authy-wordpress.zip
-   mv w3-total-cache* w3-total-cache
-   rm 0.9.6.1.zip
    rm wp-anti-detritus.zip
-   rm authy-wordpress.zip
 }
 
 customwpcli() {
@@ -107,7 +98,6 @@ getplugins() {
    done 	
    cd .. && mkdir -p mu-plugins && cd mu-plugins
    wget --quiet https://raw.githubusercontent.com/roots/wp-password-bcrypt/master/wp-password-bcrypt.php >/dev/null 2>&1
-   wget --quiet https://gist.githubusercontent.com/FPCSJames/b9169744e9786a32c0ed8754532428ba/raw/4dfe8a4b3ecd3c10c53a240834636bc097c4e5c6/0-kill-mwp-auto-login.php >/dev/null 2>&1
    cd ../plugins
    customplugins
    cd ../..

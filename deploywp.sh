@@ -8,9 +8,9 @@
 # Author: James M. Joyce, Flashpoint CS <james@flashpointcs.net>
 # Author URI: https://www.flashpointcs.net
 # GitHub repo: https://github.com/FPCSJames/deploywp
-# Version: 1.0.2
+# Version: 1.0.2a
 #
-# Copyright (c) 2016-2019 Flashpoint Computer Services, LLC <info@flashpointcs.net>
+# Copyright (c) 2016-2023 Flashpoint Computer Services, LLC <info@flashpointcs.net>
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy of
 # this software and associated documentation files (the "Software"), to deal in
@@ -67,7 +67,7 @@ permalinks="/%postname%/"
 # Custom functions
 
 customplugins() {
-   wget --quiet https://github.com/FPCSJames/wp-anti-detritus/releases/download/1.1.2/wp-anti-detritus.zip >/dev/null 2>&1
+   wget --quiet https://github.com/FPCSJames/wp-anti-detritus/releases/download/1.1.3/wp-anti-detritus.zip >/dev/null 2>&1
    unzip -nq wp-anti-detritus.zip
    rm wp-anti-detritus.zip
 }

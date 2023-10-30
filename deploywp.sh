@@ -51,7 +51,6 @@ disable-gutenberg
 ewww-image-optimizer
 two-factor-authentication
 wordpress-seo
-worker
 wp-security-audit-log"
 
 themetokeep="twentytwentythree"

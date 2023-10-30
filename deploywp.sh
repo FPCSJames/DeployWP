@@ -8,7 +8,7 @@
 # Author: James M. Joyce, Flashpoint CS <james@flashpointcs.net>
 # Author URI: https://www.flashpointcs.net
 # GitHub repo: https://github.com/FPCSJames/deploywp
-# Version: 1.0.2a
+# Version: 1.0.3
 #
 # Copyright (c) 2016-2023 Flashpoint Computer Services, LLC <info@flashpointcs.net>
 #
@@ -45,15 +45,16 @@ filestoremove="readme.html
 wp-content/plugins/akismet
 wp-content/plugins/hello.php"
 
-pluginstoadd="better-wp-security
+pluginstoadd="better-search-replace
+better-wp-security
 disable-gutenberg
 ewww-image-optimizer
-better-search-replace
 two-factor-authentication
 wordpress-seo
+worker
 wp-security-audit-log"
 
-themetokeep="twentytwentyone"
+themetokeep="twentytwentythree"
 
 # WP-CLI
 
@@ -132,7 +133,6 @@ wpclear() {
    # Thanks http://lowermedia.net/petes-evergrowing-wp-cli-reference-cheat-sheet/
    wp post delete $(wp post list --post_type='page' --format=ids) --force
    wp post delete $(wp post list --post_type='post' --format=ids) --force
-   wp widget delete $(wp widget list sidebar-1 --format=ids);
 }
 
 wpoptions() {
@@ -146,7 +146,6 @@ wpoptions() {
    wp option update siteurl 'https://$subdomain' # force siteurl to update correctly by setting it to garbage first
    wp option update siteurl 'https://$subdomain.$rootdomain'
    wp rewrite structure $permalinks --hard
-   wp rewrite flush --hard
    customwpcli
 }
 
